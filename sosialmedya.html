@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RODOSS</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+      </head>
+      <link rel="icon" href="title.jpg" type="image/png">
+
+
+  <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            height: 100vh;
+            background-attachment: fixed;
+            background-image: url('abstract-grey-and-gold-background-beauty-poster-with-dynamic-technology-network-illustration-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #imageContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .image-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            text-align: center;
+            color: #333;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #343434;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        #myButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            top: 0;
+            z-index: 1000;
+            width: 98%;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style-type: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .hidden-buttons {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 2s;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .nav-links li:hover .hidden-buttons {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 2s ease forwards;
+        }
+
+        .hidden-buttons button {
+            background-color: #333;
+            color: rgb(235, 188, 68);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .icon-button:hover {
+            background-color: rgb(235, 188, 68);
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+  </style> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+      <a href="#" class="logo">
+          <img src="Rodoos.png" alt="Logo" width="200px" height="70px">
+      </a>
+      <ul class="nav-links">
+          <li><a href="index.html" style="color: rgb(235, 188, 68); text-decoration: none;">Əsas səhifə</a></li>
+          <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Biz kimik?</a>
+              <div class="hidden-buttons">
+                  <button><a href="haqqımızda.html" style="color: rgb(235, 188, 68); text-decoration: none;">Haqqımzıda</a></button>
+                  <button><a href="deyerlerımız.html" style="color: rgb(235, 188, 68); text-decoration: none;">Dəyərlərimiz</a></button>
+                  <button><a href="misya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Misiya & Vizyonumuz</a></button>
+              </div>
+          </li>
+          <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Xidmətlərimiz</a>
+              <div class="hidden-buttons">
+                  <button><a href="telim.html" style="color: rgb(235, 188, 68); text-decoration: none;">Təlim</a></button>
+                  <button><a href="meslehet.html" style="color: rgb(235, 188, 68); text-decoration: none;">Məsləhət</a></button>
+                  <button><a href="araşdırma.html" style="color: rgb(235, 188, 68); text-decoration: none;">Araşdırma</a></button>
+              </div>
+          </li>
+          <li><a href="Expert.html" style="color: rgb(235, 188, 68); text-decoration: none;">Ekspertlərimiz</a></li>
+          <li><a href="contact.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi seçənlər</a></li>
+          <li><a href="sosialmedya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi izlə</a></li>
+      </ul>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </nav>
+  <h1>Sosial media hesabları</h1>
+  <p>
+    Ünvan: Masallı rayon, M.Talışxanov küç.
+  </p>
+  <div class="icons">
+    <a href="https://wa.me/0702712500" target="_blank" aria-label="WhatsApp">
+      <button class="icon-button">
+        <i class="fab fa-whatsapp"></i>
+      </button>
+    </a>
+    <a href="https://www.instagram.com/rodoosllc?igsh=Y3p4dXg2cGVkdHM5" target="_blank" aria-label="Instagram">
+      <button class="icon-button">
+        <i class="fab fa-instagram"></i>
+      </button>
+    </a>
+    <a href="http://www.linkedin.com/company/rodoosllc" target="_blank" aria-label="LinkedIn">
+      <button class="icon-button">
+        <i class="fab fa-linkedin"></i>
+      </button>
+    </a>
+    <a href="https://www.facebook.com/share/15tP9mdJdk/" target="_blank" aria-label="Facebook">
+      <button class="icon-button">
+        <i class="fab fa-facebook"></i>
+      </button>
+    </a>
+  </div>
+  <div><center>   
+       <button class="ico-button">
+    <i class="fab fa-whatsapp" style="color: rgb(235, 188, 68);background-color: #333;">070.271.25.00</i>
+  </button>
+</center>
+</div>
+  <script>
+      function toggleMenu() {
+          const navLinks = document.querySelector('.nav-links');
+          navLinks.classList.toggle('active');
+      }
+  </script>
+</body>
+</html>

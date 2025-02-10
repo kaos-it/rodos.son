@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RODOSS</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+      </head>
+      <link rel="icon" href="title.jpg" type="image/png">
+
+<style>
+       body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            height: 100vh;
+            background-attachment: fixed;
+            background-image: url('abstract-grey-and-gold-background-beauty-poster-with-dynamic-technology-network-illustration-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        #imageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 sütunlu bir düzen */
+    gap: 20px; /* Hücreler arasındaki boşluk */
+    padding: 20px;
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-caption {
+    margin-top: 10px;
+    text-align: center;
+    color: #333;
+}
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Navbar container */
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            top: 0;
+            z-index: 1000;
+            width: 98%;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+       .nav-links {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      text-decoration: none;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+}
+
+        /* Yeni gizli düymələrin stili */
+.hidden-buttons {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s; /* Animasyon başlamadan önce 2 saniye bekle */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Opaklık geçişi */
+}
+
+/* Fare üzerinde iken gizli düymelerin görünmesi */
+.nav-links li:hover .hidden-buttons {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 2s ease forwards; /* Animasyon ile görünme */
+}
+
+/* Fare çekildikten sonra 2 saniye boyunca gizli düymələrin ekranda kalması */
+.nav-links li .hidden-buttons {
+    pointer-events: none; /* Fare etkileşimini devre dışı bırakmak */
+}
+
+.nav-links li:hover .hidden-buttons {
+    pointer-events: auto; /* Fare üzerine gelindiğinde etkileşimi açmak */
+}
+
+.nav-links li .hidden-buttons {
+    animation: none; /* Fare çekildiğinde animasyonu sıfırlama */
+    opacity: 0;
+    transition: opacity 2s ease; /* Fare çekildikten sonra opaklık geçişi */
+}
+
+/* Fare öğesinin üzerinden çekildikten 2 saniye sonra kaybolacak */
+.nav-links li .hidden-buttons {
+    opacity: 0;
+    transition-delay: 2s; /* 2 saniye gecikmeli kaybolma */
+}
+
+
+        .hidden-buttons button {
+            background-color: #333;
+            color: rgb(235, 188, 68);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Animasiya */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mouse hover zamanı gizli düymələrin görünməsi */
+        .nav-links li:hover .hidden-buttons {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <img src="Rodoos.png" alt="Logo" width="200px" height="70px">
+        </a>
+        <ul class="nav-links">
+          
+            <li><a href="index.html" style="color: rgb(235, 188, 68); text-decoration: none;">Əsas səhifə</a></li>
+                <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Biz kimik?</a>
+                <div class="hidden-buttons">
+                    <button><a href="haqqımızda.html" style="color: rgb(235, 188, 68); text-decoration: none;">Haqqımzıda</a></button>
+                    <button><a href="deyerlerımız.html" style="color: rgb(235, 188, 68); text-decoration: none;">Dəyərlərimiz</a></button>
+                    <button><a href="misya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Misiya & Vizyonumuz</a></button>
+                </div>
+            </li>
+            <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Xidmətlərimiz</a>
+                <div class="hidden-buttons">
+                    <button><a href="telim.html" style="color: rgb(235, 188, 68); text-decoration: none;">Təlim</a></button>
+                    <button><a href="meslehet.html" style="color: rgb(235, 188, 68); text-decoration: none;">Məsləhət</a></button>
+                    <button><a href="araşdırma.html" style="color: rgb(235, 188, 68); text-decoration: none;">Araşdırma</a></button>
+                </div>
+            
+            </li>
+
+            
+          
+            <li><a href="Expert.html" style="color: rgb(235, 188, 68); text-decoration: none;">Ekspertlərimiz</a>
+                <li><a href="contact.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi seçənlər</a></li>
+                <li><a href="sosialmedya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi izlə</a></li>
+                
+             <div>
+                <div class="hidden-buttons">
+                    <a href="xeber.html" style="color: rgb(235, 188, 68); text-decoration: none;">Xəbərlər</a>
+                </div>
+             </div>
+            </li>
+            <li>
+            <li><a href="javascript:void(0);" id="createButton" style="color: rgb(235, 188, 68);">.</a></li>
+            </li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+
+
+   <!-- Password Input -->
+   <div class="add-button-container">
+       <input type="password" id="password" placeholder="" class="info-input">
+       <button id="uploadBtn" onclick="triggerUpload()" disabled>.</button>
+       <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFileUpload(event)">
+   </div>
+
+   <!-- Content Area -->
+   <div class="content-area" id="contentArea">
+       <!-- Photos will be displayed here -->
+   </div>
+
+   <script>
+          // Toggle menu for mobile view
+          function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        // Password check for enabling the upload button
+        const passwordInput = document.getElementById('password');
+        const uploadButton = document.getElementById('uploadBtn');
+        passwordInput.addEventListener('input', function() {
+            if (passwordInput.value === '12345') {
+                uploadButton.disabled = false;
+            } else {
+                uploadButton.disabled = true;
+            }
+        });
+
+        // Trigger file input click on button click
+        function triggerUpload() {
+            document.getElementById('fileInput').click();
+        }
+
+        // Handle file upload and display the image
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = e.target.result;
+                    imgElement.alt = file.name;
+                    imgElement.classList.add('content-item');
+
+                    // Save the photo and text to localStorage
+                    const savedPhotos = JSON.parse(localStorage.getItem('photos')) || [];
+                    savedPhotos.push({ img: e.target.result, text: '' });
+                    localStorage.setItem('photos', JSON.stringify(savedPhotos));
+
+                    const contentArea = document.getElementById('contentArea');
+                    const contentItem = document.createElement('div');
+                    contentItem.classList.add('content-item');
+
+                    const textInput = document.createElement('input');
+                    textInput.placeholder = 'Yazı əlavə et';
+                    textInput.classList.add('info-input');
+                    textInput.disabled = true;
+
+                    textInput.addEventListener('input', function() {
+                        const index = savedPhotos.findIndex(photo => photo.img === e.target.result);
+                        if (index > -1) {
+                            savedPhotos[index].text = textInput.value;
+                            localStorage.setItem('photos', JSON.stringify(savedPhotos));
+                        }
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Sil';
+                    deleteButton.classList.add('delete-button');
+                    deleteButton.onclick = function() {
+                        const passwordCheck = prompt('Şifrəni daxil edin silmək üçün:');
+                        if (passwordCheck === '12345') {
+                            contentArea.removeChild(contentItem);
+
+                            // Remove the deleted photo and text from localStorage
+                            const index = savedPhotos.findIndex(photo => photo.img === e.target.result);
+                            if (index > -1) {
+                                savedPhotos.splice(index, 1);
+                                localStorage.setItem('photos', JSON.stringify(savedPhotos));
+                            }
+                        } else {
+                            alert('Yanlış şifrə!');
+                        }
+                    };
+
+                    // Password validation to enable text input
+                    textInput.classList.remove('hidden');
+                    const passwordCheck = prompt('Şifrəni daxil edin yazı əlavə etmək üçün:');
+                    if (passwordCheck === '12345') {
+                        textInput.disabled = false;
+                    } else {
+                        alert('Yanlış şifrə!');
+                        textInput.disabled = true;
+                    }
+
+                    contentItem.appendChild(imgElement);
+                    contentItem.appendChild(textInput);
+                    contentItem.appendChild(deleteButton);
+                    contentArea.appendChild(contentItem);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Load saved photos and text from localStorage when the page loads
+        window.onload = function() {
+            const savedPhotos = JSON.parse(localStorage.getItem('photos')) || [];
+            const contentArea = document.getElementById('contentArea');
+
+            savedPhotos.forEach(photoData => {
+                const imgElement = document.createElement('img');
+                imgElement.src = photoData.img;
+                imgElement.classList.add('content-item');
+
+                const contentItem = document.createElement('div');
+                contentItem.classList.add('content-item');
+
+                const textInput = document.createElement('input');
+                textInput.placeholder = 'Yazı əlavə et';
+                textInput.classList.add('info-input');
+                textInput.value = photoData.text; // Load saved text
+                textInput.disabled = true;
+
+                textInput.addEventListener('input', function() {
+                    const index = savedPhotos.findIndex(photo => photo.img === photoData.img);
+                    if (index > -1) {
+                        savedPhotos[index].text = textInput.value;
+                        localStorage.setItem('photos', JSON.stringify(savedPhotos));
+                    }
+                });
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = '.';
+                deleteButton.classList.add('delete-button');
+                deleteButton.onclick = function() {
+                    const passwordCheck = prompt('Şifrəni daxil edin silmək üçün:');
+                    if (passwordCheck === '12345') {
+                        contentArea.removeChild(contentItem);
+
+                        // Remove the deleted photo and text from localStorage
+                        const index = savedPhotos.findIndex(photo => photo.img === photoData.img);
+                        if (index > -1) {
+                            savedPhotos.splice(index, 1);
+                            localStorage.setItem('photos', JSON.stringify(savedPhotos));
+                        }
+                    } else {
+                        alert('Yanlış şifrə!');
+                    }
+                };
+
+                contentItem.appendChild(imgElement);
+                contentItem.appendChild(textInput);
+                contentItem.appendChild(deleteButton);
+                contentArea.appendChild(contentItem);
+            });
+        };
+   </script>
+</body>
+</html>

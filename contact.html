@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RODOSS</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+      </head>
+      <link rel="icon" href="title.jpg" type="image/png">
+
+
+    <style>
+        /* Existing styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            height: 100vh;
+            background-attachment: fixed;
+            background-image: url('abstract-grey-and-gold-background-beauty-poster-with-dynamic-technology-network-illustration-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #uploadBtn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            top: 0;
+            z-index: 1000;
+            width: 98%;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style-type: none;
+            display: flex;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .nav-links li {
+            position: relative;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.8s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #575757;
+        }
+
+        .content-area {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+            gap: 20px;
+            margin-top: 30px;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+            overflow-y: auto; /* Add scroll if the content overflows */
+        }
+
+        .content-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-area img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-area img:hover {
+            transform: scale(1.1);
+        }
+
+        .content-area h3 {
+            font-size: 18px;
+            color: white;
+        }
+
+        .add-button-container {
+            margin-top: 2px;
+        }
+
+        .add-button-container button {
+            background-color: #2195f300;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-button-container button:hover {
+            background-color: #0b7dda;
+        }
+
+        .info-input {
+            margin-top: 10px;
+            padding: 5px;
+            width: 100%;
+            max-width: 300px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <img src="Rodoos.png" alt="Logo" width="200px" height="70px">
+        </a>
+        <ul class="nav-links">
+          
+            <li><a href="index.html" style="color: rgb(235, 188, 68); text-decoration: none;">Əsas səhifə</a></li>
+                <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Biz kimik?</a>
+                <div class="hidden-buttons">
+                    <button><a href="haqqımızda.html" style="color: rgb(235, 188, 68); text-decoration: none;">Haqqımzıda</a></button>
+                    <button><a href="deyerlerımız.html" style="color: rgb(235, 188, 68); text-decoration: none;">Dəyərlərimiz</a></button>
+                    <button><a href="misya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Misiya & Vizyonumuz</a></button>
+                </div>
+            </li>
+            <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Xidmətlərimiz</a>
+                <div class="hidden-buttons">
+                    <button><a href="telim.html" style="color: rgb(235, 188, 68); text-decoration: none;">Təlim</a></button>
+                    <button><a href="meslehet.html" style="color: rgb(235, 188, 68); text-decoration: none;">Məsləhət</a></button>
+                    <button><a href="araşdırma.html" style="color: rgb(235, 188, 68); text-decoration: none;">Araşdırma</a></button>
+                </div>
+            
+            </li>
+
+            
+          
+            <li><a href="Expert.html" style="color: rgb(235, 188, 68); text-decoration: none;">Ekspertlərimiz</a>
+                <li><a href="contact.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi seçənlər</a></li>
+                <li><a href="sosialmedya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi izlə</a></li>
+                
+             <div>
+                <div class="hidden-buttons">
+                    <a href="xeber.html" style="color: rgb(235, 188, 68); text-decoration: none;">Xəbərlər</a>
+                </div>
+             </div>
+            </li>
+            <li>
+                <li><a href="javascript:void(0);" id="createButton" style="color: rgb(235, 188, 68);">.</a></li>
+            </li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+
+
+   <div class="add-button-container">
+        <button id="addPhotoBtn" onclick="openPasswordPrompt()">Şəkil Əlavə et</button>
+   </div>
+
+   <div id="passwordPrompt" class="hidden">
+        <input type="password" id="passwordInput" class="info-input" placeholder="Şifrəni daxil edin">
+        <button onclick="checkPassword()">Davam et</button>
+   </div>
+
+   <div id="fileInputContainer" class="hidden">
+        <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+   </div>
+
+   <div id="imagePreview" class="content-area">
+        <!-- Uploaded images will be displayed here -->
+   </div>
+
+    <script>
+              // Toggle menu for mobile view
+              function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+        const correctPassword = "12345"; // Password to be checked
+
+        function openPasswordPrompt() {
+            document.getElementById('passwordPrompt').classList.remove('hidden');
+        }
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            if (enteredPassword === correctPassword) {
+                document.getElementById('passwordPrompt').classList.add('hidden');
+                document.getElementById('fileInputContainer').classList.remove('hidden');
+            } else {
+                alert("Yanlış şifrə!");
+            }
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.classList.add('content-item');
+                    
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = file.name;
+
+                    // Create and append delete button
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = "Sil";
+                    deleteBtn.style.backgroundColor = '#ff0400';
+                    deleteBtn.style.border = 'none';
+                    deleteBtn.style.borderRadius = '5px';
+                    deleteBtn.style.padding = '5px 10px';
+                    deleteBtn.style.color = 'white';
+                    deleteBtn.onclick = function () {
+                        openPasswordPromptForDelete(img.src);
+                    };
+
+                    imgContainer.appendChild(img);
+                    imgContainer.appendChild(deleteBtn);
+                    document.getElementById('imagePreview').appendChild(imgContainer);
+
+                    // Save image in localStorage
+                    let storedImages = JSON.parse(localStorage.getItem('images')) || [];
+                    storedImages.push(e.target.result);
+                    localStorage.setItem('images', JSON.stringify(storedImages));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function openPasswordPromptForDelete(imageSrc) {
+            document.getElementById('passwordPrompt').classList.remove('hidden');
+            document.getElementById('passwordInput').onkeydown = function (e) {
+                if (e.key === "Enter") {
+                    checkPasswordForDelete(imageSrc);
+                }
+            };
+        }
+
+        function checkPasswordForDelete(imageSrc) {
+            const enteredPassword = document.getElementById('passwordInput').value;
+            if (enteredPassword === correctPassword) {
+                deleteImage(imageSrc);
+                document.getElementById('passwordPrompt').classList.add('hidden');
+            } else {
+                alert("Yanlış şifrə!");
+            }
+        }
+
+        function deleteImage(imageSrc) {
+            let storedImages = JSON.parse(localStorage.getItem('images')) || [];
+            storedImages = storedImages.filter((img) => img !== imageSrc);
+            localStorage.setItem('images', JSON.stringify(storedImages));
+
+            const imagesContainer = document.getElementById('imagePreview');
+            const imageElements = imagesContainer.getElementsByTagName('img');
+            for (let i = 0; i < imageElements.length; i++) {
+                if (imageElements[i].src === imageSrc) {
+                    imagesContainer.removeChild(imageElements[i].parentElement);
+                    break;
+                }
+            }
+        }
+
+        // On page load, retrieve images from localStorage
+        window.onload = function() {
+            const storedImages = JSON.parse(localStorage.getItem('images')) || [];
+            storedImages.forEach((imageData) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('content-item');
+                
+                const img = document.createElement('img');
+                img.src = imageData;
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = "Sil";
+                deleteBtn.style.backgroundColor = '#ff0400';
+                deleteBtn.style.border = 'none';
+                deleteBtn.style.borderRadius = '5px';
+                deleteBtn.style.padding = '5px 10px';
+                deleteBtn.style.color = 'white';
+                deleteBtn.onclick = function () {
+                    openPasswordPromptForDelete(imageData);
+                };
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(deleteBtn);
+                document.getElementById('imagePreview').appendChild(imgContainer);
+            });
+        }
+    </script>
+</body>
+</html>
+

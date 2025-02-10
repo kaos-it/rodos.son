@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>RODOSS</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+      </head>
+      <link rel="icon" href="title.jpg" type="image/png">
+
+<style>
+       body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            height: 100vh;
+            background-attachment: fixed;
+            background-image: url('abstract-grey-and-gold-background-beauty-poster-with-dynamic-technology-network-illustration-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+
+        #imageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 sütunlu bir düzen */
+    gap: 20px; /* Hücreler arasındaki boşluk */
+    padding: 20px;
+}
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.image-caption {
+    margin-top: 10px;
+    text-align: center;
+    color: #333;
+}
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #myButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Navbar container */
+        .navbar {
+            position: fixed;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            top: 0;
+            z-index: 1000;
+            width: 98%;
+        }
+
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+       .nav-links {
+  display: flex;
+  list-style-type: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      text-decoration: none;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+}
+
+        /* Yeni gizli düymələrin stili */
+.hidden-buttons {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2s; /* Animasyon başlamadan önce 2 saniye bekle */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Opaklık geçişi */
+}
+
+/* Fare üzerinde iken gizli düymelerin görünmesi */
+.nav-links li:hover .hidden-buttons {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 2s ease forwards; /* Animasyon ile görünme */
+}
+
+/* Fare çekildikten sonra 2 saniye boyunca gizli düymələrin ekranda kalması */
+.nav-links li .hidden-buttons {
+    pointer-events: none; /* Fare etkileşimini devre dışı bırakmak */
+}
+
+.nav-links li:hover .hidden-buttons {
+    pointer-events: auto; /* Fare üzerine gelindiğinde etkileşimi açmak */
+}
+
+.nav-links li .hidden-buttons {
+    animation: none; /* Fare çekildiğinde animasyonu sıfırlama */
+    opacity: 0;
+    transition: opacity 2s ease; /* Fare çekildikten sonra opaklık geçişi */
+}
+
+/* Fare öğesinin üzerinden çekildikten 2 saniye sonra kaybolacak */
+.nav-links li .hidden-buttons {
+    opacity: 0;
+    transition-delay: 2s; /* 2 saniye gecikmeli kaybolma */
+}
+
+
+        .hidden-buttons button {
+            background-color: #333;
+            color: rgb(235, 188, 68);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Animasiya */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mouse hover zamanı gizli düymələrin görünməsi */
+        .nav-links li:hover .hidden-buttons {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <a href="#" class="logo">
+            <img src="Rodoos.png" alt="Logo" width="200px" height="70px">
+        </a>
+        <ul class="nav-links">
+          
+            <li><a href="index.html" style="color: rgb(235, 188, 68); text-decoration: none;">Əsas səhifə</a></li>
+                <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Biz kimik?</a>
+                <div class="hidden-buttons">
+                    <button><a href="haqqımızda.html" style="color: rgb(235, 188, 68); text-decoration: none;">Haqqımzıda</a></button>
+                    <button><a href="deyerlerımız.html" style="color: rgb(235, 188, 68); text-decoration: none;">Dəyərlərimiz</a></button>
+                    <button><a href="misya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Misiya & Vizyonumuz</a></button>
+                </div>
+            </li>
+            <li><a href="#about" style="color: rgb(235, 188, 68); text-decoration: none;">Xidmətlərimiz</a>
+                <div class="hidden-buttons">
+                    <button><a href="telim.html" style="color: rgb(235, 188, 68); text-decoration: none;">Təlim</a></button>
+                    <button><a href="meslehet.html" style="color: rgb(235, 188, 68); text-decoration: none;">Məsləhət</a></button>
+                    <button><a href="araşdırma.html" style="color: rgb(235, 188, 68); text-decoration: none;">Araşdırma</a></button>
+                </div>
+            
+            </li>
+
+            
+          
+            <li><a href="Expert.html" style="color: rgb(235, 188, 68); text-decoration: none;">Ekspertlərimiz</a>
+                <li><a href="contact.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi seçənlər</a></li>
+                <li><a href="sosialmedya.html" style="color: rgb(235, 188, 68); text-decoration: none;">Bizi izlə</a></li>
+                
+             <div>
+                <div class="hidden-buttons">
+                    <a href="xeber.html" style="color: rgb(235, 188, 68); text-decoration: none;">Xəbərlər</a>
+                </div>
+             </div>
+            </li>
+            <li>
+
+            </li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+
+<div style="display: flex; justify-content: center;">
+    <div><img src="arasdirma.png" alt="" style="width: 500px; height: 700px;"></div>
+</div>
+<script>
+          // Toggle menu for mobile view
+          function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+</script>
+</body>
+</html>
